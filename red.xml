@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<projectConfiguration>
+    <configVersion>2</configVersion>
+    <relativeTo>WORKSPACE</relativeTo>
+    <referencedLibrary type="PYTHON" name="DatabaseLibrary" path="C:/node/Lib/site-packages/DatabaseLibrary/__init__.py" dynamic="false"/>
+    <referencedLibrary type="PYTHON" name="pymysql" path="C:/node/Lib/site-packages/pymysql/__init__.py" dynamic="false"/>
+    <referencedLibrary type="PYTHON" name="FakerLibrary" path="C:/node/Lib/site-packages/FakerLibrary/__init__.py" dynamic="false"/>
+    <referencedLibrary type="PYTHON" name="SeleniumLibrary" path="C:/node/Lib/site-packages/SeleniumLibrary/__init__.py" dynamic="false"/>
+    <pythonpath/>
+    <classpath/>
+    <excludedForValidation/>
+    <isValidatedFileSizeCheckingEnabled>true</isValidatedFileSizeCheckingEnabled>
+    <validatedFileMaxSize>1024</validatedFileMaxSize>
+</projectConfiguration>

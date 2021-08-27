@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<keywordspec format="ROBOT" generated="2021-08-27T04:53:38Z" lineno="1" name="pymysql" namedargs="true" scope="GLOBAL" source="C:\node\Lib\site-packages\pymysql\__init__.py" specversion="2" type="LIBRARY">
+<version>1.0.2</version>
+<scope>global</scope>
+<namedargs>yes</namedargs>
+<doc>PyMySQL: A pure-Python MySQL client library.
+
+Copyright (c) 2010-2016 PyMySQL contributors
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.</doc>
+<kw lineno="107" name="Binary">
+<arguments>
+<arg>x</arg>
+</arguments>
+<doc>Return x as a binary type.</doc>
+</kw>
+<kw lineno="11" name="Date From Ticks" source="C:\node\Lib\site-packages\pymysql\times.py">
+<arguments>
+<arg>ticks</arg>
+</arguments>
+<doc />
+</kw>
+<kw lineno="115" name="Get Client Info">
+<arguments>
+</arguments>
+<doc />
+</kw>
+<kw lineno="134" name="Install As MySQLdb">
+<arguments>
+</arguments>
+<doc>After this function is called, any application that imports MySQLdb or
+_mysql will unwittingly actually use pymysql.</doc>
+</kw>
+<kw lineno="15" name="Time From Ticks" source="C:\node\Lib\site-packages\pymysql\times.py">
+<arguments>
+<arg>ticks</arg>
+</arguments>
+<doc />
+</kw>
+<kw lineno="19" name="Timestamp From Ticks" source="C:\node\Lib\site-packages\pymysql\times.py">
+<arguments>
+<arg>ticks</arg>
+</arguments>
+<doc />
+</kw>
+</keywordspec>

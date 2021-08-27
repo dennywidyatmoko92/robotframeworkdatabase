@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.2.2 (Python 3.7.7 on win32)" generated="20210827 13:20:25.533" rpa="false">
+<suite id="s1" name="Robotframeworkdatabase" source="C:\Users\dennypc\eclipse-workspace\robotframeworkdatabase">
+<suite id="s1-s1" name="Database" source="C:\Users\dennypc\eclipse-workspace\robotframeworkdatabase\database.robot">
+<kw name="Connect To Database" library="DatabaseLibrary" type="setup">
+<doc>Loads the DB API 2.0 module given `dbapiModuleName` then uses it to
+connect to the database using `dbName`, `dbUsername`, and `dbPassword`.</doc>
+<arguments>
+<arg>pymysql</arg>
+<arg>${DBName}</arg>
+<arg>${DBUser}</arg>
+<arg>${DBPass}</arg>
+<arg>${DBHost}</arg>
+<arg>${DBPort}</arg>
+<arg>dbConfigFile=default.cfg</arg>
+</arguments>
+<msg timestamp="20210827 13:20:26.802" level="INFO">Connecting using : pymysql.connect(db=mydb, user=dennywidy, passwd=root, host=127.0.0.1, port=3306, charset=None) </msg>
+<status status="PASS" starttime="20210827 13:20:26.800" endtime="20210827 13:20:26.807"></status>
+</kw>
+<test id="s1-s1-t1" name="insert data diri">
+<kw name="Random Int" library="FakerLibrary">
+<doc>Generate a random integer between two integers ``min`` and ``max`` inclusive
+while observing the provided ``step`` value.</doc>
+<arguments>
+<arg>min=0</arg>
+<arg>max=999</arg>
+<arg>step=1</arg>
+</arguments>
+<assign>
+<var>${id}</var>
+</assign>
+<msg timestamp="20210827 13:20:26.810" level="INFO">${id} = 366</msg>
+<status status="PASS" starttime="20210827 13:20:26.809" endtime="20210827 13:20:26.810"></status>
+</kw>
+<kw name="Name" library="FakerLibrary">
+<doc>:example 'John Doe'</doc>
+<assign>
+<var>${name}</var>
+</assign>
+<msg timestamp="20210827 13:20:26.811" level="INFO">${name} = Tracy Lopez</msg>
+<status status="PASS" starttime="20210827 13:20:26.810" endtime="20210827 13:20:26.811"></status>
+</kw>
+<kw name="Email" library="FakerLibrary">
+<arguments>
+<arg>mail.com</arg>
+</arguments>
+<assign>
+<var>${email}</var>
+</assign>
+<msg timestamp="20210827 13:20:26.812" level="INFO">${email} = christensenrodney@mail.com</msg>
+<status status="PASS" starttime="20210827 13:20:26.812" endtime="20210827 13:20:26.813"></status>
+</kw>
+<kw name="Random Number" library="FakerLibrary">
+<doc>Generate a random integer according to the following rules:</doc>
+<arguments>
+<arg>digits=11</arg>
+<arg>fix_len=${TRUE}</arg>
+</arguments>
+<assign>
+<var>${phoneNumber}</var>
+</assign>
+<msg timestamp="20210827 13:20:26.814" level="INFO">${phoneNumber} = 16708933851</msg>
+<status status="PASS" starttime="20210827 13:20:26.813" endtime="20210827 13:20:26.814"></status>
+</kw>
+<kw name="City" library="FakerLibrary">
+<doc>:example 'Sashabury'</doc>
+<assign>
+<var>${city}</var>
+</assign>
+<msg timestamp="20210827 13:20:26.816" level="INFO">${city} = Hensleytown</msg>
+<status status="PASS" starttime="20210827 13:20:26.815" endtime="20210827 13:20:26.816"></status>
+</kw>
+<kw name="Address" library="FakerLibrary">
+<doc>:example '791 Crist Parks, Sashabury, IL 86039-9874'</doc>
+<assign>
+<var>${address}</var>
+</assign>
+<msg timestamp="20210827 13:20:26.818" level="INFO">${address} = 26480 Smith Burgs Apt. 129
+Ericport, CA 17887</msg>
+<status status="PASS" starttime="20210827 13:20:26.816" endtime="20210827 13:20:26.818"></status>
+</kw>
+<kw name="Postcode" library="FakerLibrary">
+<doc>:example 86039-9874</doc>
+<assign>
+<var>${postalCode}</var>
+</assign>
+<msg timestamp="20210827 13:20:26.820" level="INFO">${postalCode} = 09337</msg>
+<status status="PASS" starttime="20210827 13:20:26.819" endtime="20210827 13:20:26.820"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>NAME=${name}</arg>
+<arg>EMAIL=${email}</arg>
+<arg>PHONE=+62${phoneNumber}</arg>
+<arg>CITY=${city}</arg>
+<arg>ADDRESS=${address}</arg>
+<arg>POSTCODE=${postalCode}</arg>
+<arg>ID=${id}</arg>
+</arguments>
+<assign>
+<var>&amp;{DATAUSER}</var>
+</assign>
+<msg timestamp="20210827 13:20:26.823" level="INFO">&amp;{DATAUSER} = { NAME=Tracy Lopez | EMAIL=christensenrodney@mail.com | PHONE=+6216708933851 | CITY=Hensleytown | ADDRESS=26480 Smith Burgs Apt. 129
+Ericport, CA 17887 | POSTCODE=09337 | ID=366 }</msg>
+<status status="PASS" starttime="20210827 13:20:26.820" endtime="20210827 13:20:26.824"></status>
+</kw>
+<kw name="Execute Sql String" library="DatabaseLibrary">
+<doc>Executes the sqlString as SQL commands. Useful to pass arguments to your sql. Set optional input `sansTran` to
+True to run command without an explicit transaction commit or rollback.</doc>
+<arguments>
+<arg>insert into datadiri values(${DATAUSER.ID},"${DATAUSER.NAME}","${DATAUSER.ADDRESS}");</arg>
+</arguments>
+<assign>
+<var>${output}</var>
+</assign>
+<msg timestamp="20210827 13:20:26.825" level="INFO">Executing : Execute SQL String  |  insert into datadiri values(366,"Tracy Lopez","26480 Smith Burgs Apt. 129
+Ericport, CA 17887"); </msg>
+<msg timestamp="20210827 13:20:26.827" level="INFO">${output} = None</msg>
+<status status="PASS" starttime="20210827 13:20:26.824" endtime="20210827 13:20:26.827"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${output}</arg>
+</arguments>
+<status status="PASS" starttime="20210827 13:20:26.827" endtime="20210827 13:20:26.828"></status>
+</kw>
+<status status="PASS" starttime="20210827 13:20:26.808" endtime="20210827 13:20:26.828" critical="yes"></status>
+</test>
+<test id="s1-s1-t2" name="check record">
+<kw name="Check If Exists In Database" library="DatabaseLibrary">
+<doc>Check if any row would be returned by given the input `selectStatement`. If there are no results, then this will
+throw an AssertionError. Set optional input `sansTran` to True to run command without an explicit transaction
+commit or rollback.</doc>
+<arguments>
+<arg>select id from mydb.datadiri where id=1;</arg>
+</arguments>
+<msg timestamp="20210827 13:20:26.830" level="INFO">Executing : Check If Exists In Database  |  select id from mydb.datadiri where id=1; </msg>
+<msg timestamp="20210827 13:20:26.831" level="INFO">Executing : Query  |  select id from mydb.datadiri where id=1; </msg>
+<msg timestamp="20210827 13:20:26.832" level="FAIL">Expected to have have at least one row from 'select id from mydb.datadiri where id=1;' but got 0 rows.</msg>
+<status status="FAIL" starttime="20210827 13:20:26.830" endtime="20210827 13:20:26.833"></status>
+</kw>
+<status status="FAIL" starttime="20210827 13:20:26.829" endtime="20210827 13:20:26.833" critical="yes">Expected to have have at least one row from 'select id from mydb.datadiri where id=1;' but got 0 rows.</status>
+</test>
+<test id="s1-s1-t3" name="check tidak ada">
+<kw name="Check If Not Exists In Database" library="DatabaseLibrary">
+<doc>This is the negation of `check_if_exists_in_database`.</doc>
+<arguments>
+<arg>select id from mydb.datadiri where id=0;</arg>
+</arguments>
+<msg timestamp="20210827 13:20:26.836" level="INFO">Executing : Check If Not Exists In Database  |  select id from mydb.datadiri where id=0; </msg>
+<msg timestamp="20210827 13:20:26.836" level="INFO">Executing : Query  |  select id from mydb.datadiri where id=0; </msg>
+<status status="PASS" starttime="20210827 13:20:26.835" endtime="20210827 13:20:26.837"></status>
+</kw>
+<status status="PASS" starttime="20210827 13:20:26.834" endtime="20210827 13:20:26.837" critical="yes"></status>
+</test>
+<test id="s1-s1-t4" name="check person table exist in my">
+<kw name="Table Must Exist" library="DatabaseLibrary">
+<doc>Check if the table given exists in the database. Set optional input `sansTran` to True to run command without an
+explicit transaction commit or rollback.</doc>
+<arguments>
+<arg>datadiri</arg>
+</arguments>
+<msg timestamp="20210827 13:20:26.839" level="INFO">Executing : Table Must Exist  |  datadiri </msg>
+<msg timestamp="20210827 13:20:26.839" level="INFO">Executing : Row Count  |  SELECT * FROM information_schema.tables WHERE table_name='datadiri' </msg>
+<status status="PASS" starttime="20210827 13:20:26.837" endtime="20210827 13:20:26.841"></status>
+</kw>
+<status status="PASS" starttime="20210827 13:20:26.837" endtime="20210827 13:20:26.842" critical="yes"></status>
+</test>
+<test id="s1-s1-t5" name="verify row count is zero">
+<kw name="Row Count Is 0" library="DatabaseLibrary">
+<doc>Check if any rows are returned from the submitted `selectStatement`. If there are, then this will throw an
+AssertionError. Set optional input `sansTran` to True to run command without an explicit transaction commit or
+rollback.</doc>
+<arguments>
+<arg>select * from mydb.datadiri where id=1343435;</arg>
+</arguments>
+<msg timestamp="20210827 13:20:26.845" level="INFO">Executing : Row Count Is 0  |  select * from mydb.datadiri where id=1343435; </msg>
+<msg timestamp="20210827 13:20:26.845" level="INFO">Executing : Row Count  |  select * from mydb.datadiri where id=1343435; </msg>
+<status status="PASS" starttime="20210827 13:20:26.844" endtime="20210827 13:20:26.846"></status>
+</kw>
+<status status="PASS" starttime="20210827 13:20:26.843" endtime="20210827 13:20:26.846" critical="yes"></status>
+</test>
+<test id="s1-s1-t6" name="verify row count is equal to some value">
+<kw name="Row Count Is Equal To X" library="DatabaseLibrary">
+<doc>Check if the number of rows returned from `selectStatement` is equal to the value submitted. If not, then this
+will throw an AssertionError. Set optional input `sansTran` to True to run command without an explicit
+transaction commit or rollback.</doc>
+<arguments>
+<arg>select * from mydb.datadiri where id=1;</arg>
+<arg>1</arg>
+</arguments>
+<msg timestamp="20210827 13:20:26.848" level="INFO">Executing : Row Count Is Equal To X  |  select * from mydb.datadiri where id=1;  |  1 </msg>
+<msg timestamp="20210827 13:20:26.849" level="INFO">Executing : Row Count  |  select * from mydb.datadiri where id=1; </msg>
+<msg timestamp="20210827 13:20:26.850" level="FAIL">Expected same number of rows to be returned from 'select * from mydb.datadiri where id=1;' than the returned rows of 0</msg>
+<status status="FAIL" starttime="20210827 13:20:26.848" endtime="20210827 13:20:26.850"></status>
+</kw>
+<status status="FAIL" starttime="20210827 13:20:26.847" endtime="20210827 13:20:26.851" critical="yes">Expected same number of rows to be returned from 'select * from mydb.datadiri where id=1;' than the returned rows of 0</status>
+</test>
+<test id="s1-s1-t7" name="retrieve record">
+<kw name="Query" library="DatabaseLibrary">
+<doc>Uses the input `selectStatement` to query for the values that will be returned as a list of tuples. Set optional
+input `sansTran` to True to run command without an explicit transaction commit or rollback.
+Set optional input `returnAsDict` to True to return values as a list of dictionaries.</doc>
+<arguments>
+<arg>select * from mydb.datadiri order by nama asc</arg>
+</arguments>
+<assign>
+<var>@{queryresult}</var>
+</assign>
+<msg timestamp="20210827 13:20:26.853" level="INFO">Executing : Query  |  select * from mydb.datadiri order by nama asc </msg>
+<msg timestamp="20210827 13:20:26.853" level="INFO">@{queryresult} = [ (305, 'Ashley Duncan', '15047 Craig Wells Su') | (176, 'Belinda Hunter', '66209 Carter Neck Su') | (387, 'Beverly Dixon', '2078 Garcia Mountain') | (81, 'Bryan Peck', '0383 Christian Highw') | (439,...</msg>
+<status status="PASS" starttime="20210827 13:20:26.852" endtime="20210827 13:20:26.853"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>many @{queryresult}</arg>
+</arguments>
+<status status="PASS" starttime="20210827 13:20:26.856" endtime="20210827 13:20:26.856"></status>
+</kw>
+<status status="PASS" starttime="20210827 13:20:26.851" endtime="20210827 13:20:26.857" critical="yes"></status>
+</test>
+<test id="s1-s1-t8" name="update data">
+<kw name="Execute Sql String" library="DatabaseLibrary">
+<doc>Executes the sqlString as SQL commands. Useful to pass arguments to your sql. Set optional input `sansTran` to
+True to run command without an explicit transaction commit or rollback.</doc>
+<arguments>
+<arg>update mydb.datadiri set nama="embuh",alamat="embuh" where id=1;</arg>
+</arguments>
+<assign>
+<var>${output}</var>
+</assign>
+<msg timestamp="20210827 13:20:26.860" level="INFO">Executing : Execute SQL String  |  update mydb.datadiri set nama="embuh",alamat="embuh" where id=1; </msg>
+<msg timestamp="20210827 13:20:26.861" level="INFO">${output} = None</msg>
+<status status="PASS" starttime="20210827 13:20:26.859" endtime="20210827 13:20:26.862"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${output}</arg>
+</arguments>
+<status status="PASS" starttime="20210827 13:20:26.862" endtime="20210827 13:20:26.863"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${output}</arg>
+<arg>${None}</arg>
+</arguments>
+<status status="PASS" starttime="20210827 13:20:26.864" endtime="20210827 13:20:26.866"></status>
+</kw>
+<status status="PASS" starttime="20210827 13:20:26.858" endtime="20210827 13:20:26.866" critical="yes"></status>
+</test>
+<test id="s1-s1-t9" name="delete data">
+<kw name="Execute Sql String" library="DatabaseLibrary">
+<doc>Executes the sqlString as SQL commands. Useful to pass arguments to your sql. Set optional input `sansTran` to
+True to run command without an explicit transaction commit or rollback.</doc>
+<arguments>
+<arg>delete from mydb.datadiri where id=1;</arg>
+</arguments>
+<assign>
+<var>${output}</var>
+</assign>
+<msg timestamp="20210827 13:20:26.869" level="INFO">Executing : Execute SQL String  |  delete from mydb.datadiri where id=1; </msg>
+<msg timestamp="20210827 13:20:26.870" level="INFO">${output} = None</msg>
+<status status="PASS" starttime="20210827 13:20:26.868" endtime="20210827 13:20:26.870"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${output}</arg>
+</arguments>
+<status status="PASS" starttime="20210827 13:20:26.870" endtime="20210827 13:20:26.870"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${output}</arg>
+<arg>${None}</arg>
+</arguments>
+<status status="PASS" starttime="20210827 13:20:26.870" endtime="20210827 13:20:26.873"></status>
+</kw>
+<status status="PASS" starttime="20210827 13:20:26.867" endtime="20210827 13:20:26.874" critical="yes"></status>
+</test>
+<test id="s1-s1-t10" name="check username">
+<kw name="Query" library="DatabaseLibrary">
+<doc>Uses the input `selectStatement` to query for the values that will be returned as a list of tuples. Set optional
+input `sansTran` to True to run command without an explicit transaction commit or rollback.
+Set optional input `returnAsDict` to True to return values as a list of dictionaries.</doc>
+<arguments>
+<arg>select nama from mydb.datadiri where id=584;</arg>
+</arguments>
+<assign>
+<var>${output}</var>
+</assign>
+<msg timestamp="20210827 13:20:26.877" level="INFO">Executing : Query  |  select nama from mydb.datadiri where id=584; </msg>
+<msg timestamp="20210827 13:20:26.878" level="INFO">${output} = (('Tanya Martinez',),)</msg>
+<status status="PASS" starttime="20210827 13:20:26.876" endtime="20210827 13:20:26.878"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${output}</arg>
+</arguments>
+<status status="PASS" starttime="20210827 13:20:26.879" endtime="20210827 13:20:26.879"></status>
+</kw>
+<status status="PASS" starttime="20210827 13:20:26.875" endtime="20210827 13:20:26.880" critical="yes"></status>
+</test>
+<status status="FAIL" starttime="20210827 13:20:25.625" endtime="20210827 13:20:26.882"></status>
+</suite>
+<status status="FAIL" starttime="20210827 13:20:25.576" endtime="20210827 13:20:26.887"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="8" fail="2">Critical Tests</stat>
+<stat pass="8" fail="2">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="8" fail="2" id="s1" name="Robotframeworkdatabase">Robotframeworkdatabase</stat>
+<stat pass="8" fail="2" id="s1-s1" name="Database">Robotframeworkdatabase.Database</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
